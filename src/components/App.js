@@ -55,12 +55,9 @@ class App extends Component {
 
   render() {
     return (
-      <div id="main">
-        <ol>
-            {this.list()}
-        </ol>
-        
-      </div>
+      <ol>
+        {this.list()}
+      </ol>
     )
   }
 }
