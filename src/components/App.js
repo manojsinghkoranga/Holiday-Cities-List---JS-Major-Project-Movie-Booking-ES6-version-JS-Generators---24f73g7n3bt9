@@ -35,12 +35,24 @@ class App extends Component {
     { name: 'Mount Abu', country: 'India' },
     { name: 'Tirupati', country: 'India' },
     ]
+
+    this.count = 1
   }
+  
 
   render() {
     return (
       <div id="main">
-        {/* Do not remove the main div */}
+        <ol>
+          {this.cityList.map((obj) => {
+            if(obj.country === 'India'){
+              console.log(this.count);
+              return <li key={`location${this.count++}`}>{obj.name}</li>
+            }
+          })}
+
+        </ol>
+        
       </div>
     )
   }
