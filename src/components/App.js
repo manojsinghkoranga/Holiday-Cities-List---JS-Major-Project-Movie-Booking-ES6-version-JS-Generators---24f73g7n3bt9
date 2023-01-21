@@ -36,7 +36,20 @@ class App extends Component {
     { name: 'Tirupati', country: 'India' },
     ]
 
-    this.count = 1
+    this.list = this.list.bind(this);
+  }
+
+  list() {
+    let count = 1;
+    let array = [];
+
+    this.cityList.map((obj) => {
+      if(obj.country === 'India'){
+        array.push(<li key={`location${count++}`}>{obj.name}</li>);
+      }
+    })
+
+    return array;
   }
   
 
@@ -44,13 +57,7 @@ class App extends Component {
     return (
       <div id="main">
         <ol>
-          {this.cityList.map((obj) => {
-            if(obj.country === 'India'){
-              console.log(this.count);
-              return <li key={`location${this.count++}`}>{obj.name}</li>
-            }
-          })}
-
+            {this.list()}
         </ol>
         
       </div>
