@@ -36,29 +36,23 @@ class App extends Component {
     { name: 'Tirupati', country: 'India' },
     ]
 
-    this.list = this.list.bind(this);
+    this.valid = this.valid.bind(this);
   }
 
-  list() {
-    let count = 1;
-    let array = [];
-
-    this.cityList.map((obj) => {
-      if(obj.country === 'India'){
-        array.push(<li key={`location${count++}`}>{obj.name}</li>);
+  valid() {
+    let a = [];
+    let j = 1;
+    for (let i = 0; i < this.cityList.length; i++) {
+      if (this.cityList[i].country === "India") {
+        a.push(<li key={"location" + j++}>{this.cityList[i].name}</li>);
       }
-    })
-
-    return array;
+    }
+    return a;
   }
   
 
   render() {
-    return (
-      <ol>
-        {this.list()}
-      </ol>
-    )
+    return <ol>{this.valid()}</ol>;
   }
 }
 
